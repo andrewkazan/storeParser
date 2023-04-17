@@ -1,0 +1,16 @@
+.resetWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.resetButton {
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    color: chocolate;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid chocolate;
+    cursor: pointer;
+}
