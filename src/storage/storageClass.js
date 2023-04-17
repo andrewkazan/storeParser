@@ -19,6 +19,11 @@ class StorageClass {
             this[variable][key] = value;
         }
     }
+
+    reset() {
+        this.dataLinks = {};
+        this.dataPrices = {};
+    }
 }
 
 export const AppStorage = new StorageClass();

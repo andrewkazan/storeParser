@@ -12,6 +12,8 @@ router.post('/save', async (ctx) => {
         const parser = new Parser();
         const csv = parser.parse(dataLinks);
 
+        AppStorage.reset();
+
         ctx.response.set('Content-Type', 'text/csv');
         ctx.response.set('Content-Disposition', 'attachment; filename="prices.csv"');
         ctx.body = csv;
