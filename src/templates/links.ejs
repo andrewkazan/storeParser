@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ./common/head.ejs %>
+    <body>
+        <div class="linksWrapper">
+            <div class="content">
+                <div class="title">HTML price parser from csv file</div>
+                <div>
+                    <div class="fileDisclaimer">In file <span id="fileName"><%= file%></span> found stores:</div>
+                    <div>
+                        <div class="foundStores">
+                            <% Object.entries(foundStores).map((shop) => { %>
+                                <div class="shopInfo">
+                                    <div class="shopTitle"><%= shop[0] %>:&nbsp;</div>
+                                    <div class="shopCount"><%= shop[1] %>;&nbsp;</div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="foundLinks">Found links: <span class="listCount"><%= links.length %></span></div>
+                    <div class="linkList">
+                        <% links.map((link, idx) => { %>
+                            <div class="linkItem">
+                                <span><%= idx%>:&nbsp;</span>
+                                <div><%= link['link'] %></div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+                <div class="submitWrapper">
+                    <form action="/parsed" method="post" enctype="multipart/form-data">
+                        <input value="<%= file%>" type="text" name="filename" />
+                        <input type="submit" value="Parse it"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

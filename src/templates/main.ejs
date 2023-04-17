@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ./common/head.ejs %>
+    <body>
+        <div class="mainWrapper">
+            <div class="content">
+                <div class="title">HTML price parser from csv file</div>
+                <div class="inputWrapper">
+                <h2>Choose your csv file</h2>
+                    <div class="fileWrapper">
+                        <form action="/" method="post" enctype="multipart/form-data">
+                            <input name="file" type="file" accept=".csv"/>
+                            <input type="submit" value="Download file"/>
+                        </form>
+                    </div>
+                </div>
+                <h3 class="formatDisclaimer">Your file should be in format like here:</h3>
+                <div class="tableWrapper">
+                    <table class="tableContent">
+                        <thead>
+                            <tr>
+                                <th class="tableHead">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tableBody">https://www.ozon.ru/product/smartfon-bq-5565-2-16-gb-fioletovyy-382618483/?asb=AwcCf5TfHpcy8KSG5C1Rq8DXGtRMPOAChqXQTMU6aWw%253D&asb2=nA-EVT3IVfTcbVEM95FE8eCsjNEtbsQMNhLupiDjwgg-7rBzgQuZZH3e7uk2WPpm&avtc=1&avte=4&avts=1666352616&keywords=%D0%A1%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD+BQ+5565&sh=lhdwD0mtvw</td>
+                            </tr>
+                            <tr>
+                                <td class="tableBody">https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=%D0%9A%D0%BE%D1%84%D0%B5%D0%B2%D0%B0%D1%80%D0%BA%D0%B0+%D0%BA%D0%B0%D0%BF%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F&product_id=154920045</td>
+                            </tr>
+                            <tr>
+                                <td class="tableBody">https://www.ozon.ru/product/vertikalnyy-pylesos-deerma-dx115c-ru-versiya-evrovilka-376259905/?asb=xM7wGMzsj54sTA%252B9ialXj0qU1IoK0g%252BYX3KW9fg7yb4%253D&asb2=VQ9s9ln463lvGzpTiWR3mk6bXXXQUFyZrEDgKwR2JMK05_-tkeqGkwG7U-ZQZRvy&avtc=1&avte=2&avts=1666352778&keywords=Deerma+DX115C&sh=lhdwD5uIhw</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

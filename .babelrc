@@ -1,0 +1,38 @@
+{
+    "presets": [
+        "babel-preset-react",
+        [
+            "env",
+            {
+                "targets": {
+                    "node": true
+                }
+            }
+        ]
+    ],
+    "env": {
+        "development": {
+            "presets": [["babel-preset-react", { "development": true }]]
+        }
+    },
+    "plugins": [
+        "transform-runtime",
+        "transform-object-rest-spread",
+        [
+            "file-loader",
+            {
+                "name": "[name].[ext]",
+                "outputPath": null,
+                "publicPath": "",
+                "extensions": ["sql"],
+                "context": "./"
+            }
+        ],
+        [
+            "module-resolver",
+            {
+                "root": ["./src", "./config"]
+            }
+        ]
+    ]
+}

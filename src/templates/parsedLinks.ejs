@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ./common/head.ejs %>
+<body>
+<div class="linksWrapper">
+    <div class="content">
+        <div class="title">HTML price parser from csv file</div>
+        <div>
+            <div class="fileDisclaimer">
+                Was found <span class="listCount"><%= prices.length %></span> prices by links from file <span id="fileName"><%= file%></span>
+            </div>
+            <div class="priceList">
+                <% prices.map((priceInfo, idx) => { %>
+                    <div class="priceItem">
+                        <span><%= idx%>:&nbsp;</span>
+                        <div><%= priceInfo['name'] %> | &nbsp;</div>
+                        <div><%= priceInfo['price'] %></div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="submitWrapper">
+            <button onclick="saveToCsv('<%= file%>')">Import all to cvs</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

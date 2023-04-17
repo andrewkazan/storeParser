@@ -1,0 +1,38 @@
+.DS_Store
+node_modules/
+src/db/neDb/models/
+#src/api-docs/*
+#!src/api-docs/.gitkeep
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist
+pg_db
+#pg_db_scripts
+redis_db
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+config/**/local*
+
+
+.npmrc
+jsconfig.json
+
+
+# ci template files ignore
+.dockerignore
+ci.yml
+Dockerfile
+init-template.sh
+.helm
+
+#pg scheme
+pg_scheme.png
+pg_scheme.uml
