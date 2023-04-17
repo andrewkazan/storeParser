@@ -1,6 +1,7 @@
 import Router from 'koa-router';
 import { csvParser } from '../utils/csvParser';
 import { getFoundStores } from '../utils/foundStores';
+import { deleteFile } from '../utils/deleteFile';
 import { AppStorage } from '../storage/storageClass';
 
 const router = new Router();
@@ -16,6 +17,8 @@ router.post('/', async (ctx) => {
         const foundStores = getFoundStores(resultOfParse);
 
         AppStorage.set('dataLinks', file.originalFilename, resultOfParse);
+
+        deleteFile(file.filepath);
 
         return ctx.render('links', {
             foundStores,
