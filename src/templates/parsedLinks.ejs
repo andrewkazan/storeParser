@@ -12,10 +12,27 @@
                     </div>
                     <div class="priceList">
                         <% prices.map((priceInfo, idx) => { %>
-                            <div class="priceItem">
-                                <span><%= idx%>:&nbsp;</span>
-                                <div><%= priceInfo['name'] %> | &nbsp;</div>
-                                <div><%= priceInfo['price'] %></div>
+                            <div>
+                                <div class="thingName">
+                                    <span><%= idx%>:&nbsp;</span>
+                                    <span><%= priceInfo['name'] %></span>
+                                </div>
+                                <div class="prices">
+                                    <div class="price">
+                                        <span>actual price: </span>
+                                        <span><%= priceInfo['priceActual'] %>;</span>
+                                    </div>
+                                    <div class="price">
+                                        <span>not actual price: </span>
+                                        <span><%= priceInfo['priceCross'] %>;</span>
+                                    </div>
+                                    <div class="price">
+                                        <span>with Ozon card price: </span>
+                                        <span><%= priceInfo['priceWithOzonCard'] %>;</span>
+                                    </div>
+
+
+                                </div>
                             </div>
                         <% }) %>
                     </div>

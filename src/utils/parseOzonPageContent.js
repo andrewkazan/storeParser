@@ -6,26 +6,49 @@ export const parseOzonPageContent = (content) => {
     try {
         const result = {
             name: '',
-            price: ''
+            priceActual: '',
+            priceCross: '',
+            priceWithOzonCard: ''
         };
 
         const $ = cheerio.load(content);
         const elementsForName = $('h1');
-        const elementsForPrice = $('[slot="content"]');
+        const elementsPrices = $('[slot="content"]');
+        const elementsOzonCardPrice = $('.no div div');
 
         if (elementsForName) {
             const getName = elementsForName.html();
 
-            if (getName) result.name = getName;
+            if (getName) {
+                result.name = getName;
+            } else {
+                result.name = '-';
+            }
         }
 
-        if (elementsForPrice) {
-            const getPrice = elementsForPrice
-                .find('span')
-                .eq(1)
-                .text();
+        if (elementsPrices) {
+            const getActualPrice =
+                elementsPrices
+                    .find('span')
+                    .eq(1)
+                    .text() || '-';
 
-            if (getPrice) result.price = getPrice;
+            const getCrossPrice =
+                elementsPrices
+                    .find('span')
+                    .eq(2)
+                    .text() || '-';
+
+            result.priceActual = getActualPrice;
+            result.priceCross = getCrossPrice;
+        }
+
+        if (elementsOzonCardPrice) {
+            const getOzonCardPrice = elementsOzonCardPrice.text().split('₽');
+
+            if (getOzonCardPrice.length) {
+                result.priceWithOzonCard = getOzonCardPrice[0] ? getOzonCardPrice[0] + '₽' : '-';
+            }
         }
 
         return result;

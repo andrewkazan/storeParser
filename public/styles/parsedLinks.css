@@ -43,19 +43,27 @@
     padding: 5px;
 }
 
-.priceItem {
-    display: flex;
+.thingName {}
+
+.thingName span:nth-child(1) {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.thingName span:nth-child(2) {
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.prices {
+    padding-left: 26px;
+}
+
+.price {
     font-size: 20px;
 }
 
-.priceItem div:nth-child(2) {
-    width: 90%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.priceItem div:nth-child(3) {
+.price span:nth-child(2) {
     font-weight: 600;
 }
 
