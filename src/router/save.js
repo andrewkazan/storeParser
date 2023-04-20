@@ -7,7 +7,7 @@ const router = new Router();
 router.post('/save', async (ctx) => {
     try {
         const { fileName = '' } = JSON.parse(ctx.request.body);
-        const dataLinks = AppStorage.get('dataPrices', fileName);
+        const dataLinks = AppStorage.getData('dataPrices', fileName);
 
         const parser = new Parser();
         const csv = parser.parse(dataLinks);

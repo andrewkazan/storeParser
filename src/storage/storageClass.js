@@ -1,10 +1,11 @@
 class StorageClass {
     constructor() {
+        this.useHTMLMode = true;
         this.dataLinks = {};
         this.dataPrices = {};
     }
 
-    get(variable, key) {
+    getData(variable, key) {
         if (!this[variable][key]) {
             console.warn('Not such data in StorageClass');
         } else {
@@ -12,7 +13,7 @@ class StorageClass {
         }
     }
 
-    set(variable, key, value) {
+    setData(variable, key, value) {
         if (!variable || !key) {
             console.warn('Need variable and key for save data');
         } else {
@@ -20,7 +21,16 @@ class StorageClass {
         }
     }
 
+    getHtmlMode() {
+        return this.useHTMLMode;
+    }
+
+    setHTMLMode(value) {
+        this.useHTMLMode = value;
+    }
+
     reset() {
+        this.useHTMLMode = true;
         this.dataLinks = {};
         this.dataPrices = {};
     }

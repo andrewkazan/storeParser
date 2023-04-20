@@ -42,6 +42,7 @@
     font-size: 18px;
     border: 1px solid chocolate;
     cursor: pointer;
+    margin-left: 25px;
 }
 
 .formatDisclaimer {

@@ -13,10 +13,12 @@ router.get('/', (ctx) => {
 router.post('/', async (ctx) => {
     try {
         const { file } = ctx.request.files;
+        const useHTML = Boolean(ctx.request.body.useHTML);
         const resultOfParse = await csvParser(file);
         const foundStores = getFoundStores(resultOfParse);
 
-        AppStorage.set('dataLinks', file.originalFilename, resultOfParse);
+        AppStorage.setData('dataLinks', file.originalFilename, resultOfParse);
+        AppStorage.setHTMLMode(useHTML);
 
         deleteFile(file.filepath);
 

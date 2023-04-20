@@ -7,10 +7,11 @@ const router = new Router();
 router.post('/parsed', async (ctx) => {
     try {
         const { filename = '' } = ctx.request.body;
-        const linksFromFile = AppStorage.get('dataLinks', filename);
+        const linksFromFile = AppStorage.getData('dataLinks', filename);
+        const useHTMLMode = AppStorage.getHtmlMode();
 
         const pagesInfo = await getPageContent(linksFromFile);
-        AppStorage.set('dataPrices', filename, pagesInfo);
+        AppStorage.setData('dataPrices', filename, pagesInfo);
 
         return ctx.render('parsedLinks', {
             file: filename,
