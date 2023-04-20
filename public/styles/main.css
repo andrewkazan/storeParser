@@ -33,6 +33,17 @@
     align-items: center;
 }
 
+.downloadFile {
+    width: 120px;
+    height: 35px;
+    border-radius: 8px;
+    color: chocolate;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid chocolate;
+    cursor: pointer;
+}
+
 .formatDisclaimer {
     text-align: center;
 }
