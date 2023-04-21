@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 
-export const parseOzonPageContent = (content) => {
+export const parseOzonHTML = (content) => {
     if (!content) return;
 
     try {

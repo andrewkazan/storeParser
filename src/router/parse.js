@@ -10,7 +10,7 @@ router.post('/parsed', async (ctx) => {
         const linksFromFile = AppStorage.getData('dataLinks', filename);
         const useHTMLMode = AppStorage.getHtmlMode();
 
-        const pagesInfo = await getPageContent(linksFromFile);
+        const pagesInfo = await getPageContent(linksFromFile, useHTMLMode);
         AppStorage.setData('dataPrices', filename, pagesInfo);
 
         return ctx.render('parsedLinks', {

@@ -8,7 +8,7 @@ const options = {
     headless: false
 };
 
-export const getPageContent = async (linksFromFile) => {
+export const getPageContent = async (linksFromFile, useHTMLMode) => {
     const browser = await puppeteer.launch(options);
 
     try {
@@ -21,7 +21,7 @@ export const getPageContent = async (linksFromFile) => {
             await page.goto(link);
             const content = await page.content();
 
-            const getParseShopHelper = selectShop(shopInfo);
+            const getParseShopHelper = selectShop(shopInfo, useHTMLMode);
 
             if (getParseShopHelper) {
                 const getRowDataFromPage = getParseShopHelper(content);
